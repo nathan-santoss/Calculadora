@@ -13,14 +13,16 @@ const captacao = () => {
             document.getElementById('caixa').value = window.api.resolucao()
         }
         else if(botao === 'DEL'){
-            document.getElementById('caixa').value = document.getElementById('caixa').value.slice(0, -1)}
-        else if(botao === 'H'){ montarHistorico() }
+            document.getElementById('caixa').value = document.getElementById('caixa').value.slice(0, -1)
+        }
+        else if(botao === 'H'){
+            criarHistorico() 
+        }
         else{document.getElementById('caixa').value += botao}
     })
 }
 window.addEventListener('load', captacao)
 
-const montarHistorico = () => {
+const criarHistorico = () => {
     window.api.janelaHistorico()
-    window.api.receberHistorico((event, array) => document.getElementById('historico').innerHTML = array)
 }

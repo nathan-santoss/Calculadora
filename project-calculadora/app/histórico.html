@@ -9,5 +9,10 @@
     <h1>Histórico</h1>
     <div id="Histórico"></div>
     
+    <script>
+        window.addEventListener('load', () => {
+            window.api.receberHistorico((event, array) => document.getElementById('historico').innerHTML = array)
+        })
+    </script>
 </body>
 </html>
