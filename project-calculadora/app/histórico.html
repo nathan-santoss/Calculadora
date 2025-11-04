@@ -7,13 +7,19 @@
 </head>
 <body>
     <h1>Histórico</h1>
-    <div id="Histórico"></div>
+    <div id="Historico">    </div>
     
     <script>
         window.addEventListener('load', () => {
-            window.api.solicitar()
-            window.api.receber((event, array) => document.getElementById('Historico').innerHTML = array)
-        })
+            window.api.solicitar();
+            let historico = ''
+            window.api.receber((event, array) => {
+                array.forEach(expressao => {
+                    historico += `<h3>- ${expressao}</h3>`
+                });
+                document.getElementById('Historico').innerHTML = historico
+            })
+        });
     </script>
 </body>
 </html>

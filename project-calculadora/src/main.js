@@ -45,7 +45,9 @@ app.whenReady().then(criarJanela)
 
 let historico = []
 ipcMain.on('montarHistorico', (event, caixa) => {
-    const resultado = eval(caixa)
+    let resultado = eval(caixa)
+    if(Number.isInteger(resultado)){resultado = Number(resultado).toFixed(0)}
+    else{resultado = Number(resultado).toFixed(2)}
     let expressao = []
     expressao.push(caixa + ' = ' + resultado)
     historico.push(expressao)
@@ -53,4 +55,4 @@ ipcMain.on('montarHistorico', (event, caixa) => {
 })
 
 ipcMain.on('janela-historico', janelaHistorico)
-ipcMain.on('solicitar-historico', (event, historico) => event.reply('devolver-historico', historico))
+ipcMain.on('solicitar-historico', (event) => event.reply('devolver-historico', historico))
