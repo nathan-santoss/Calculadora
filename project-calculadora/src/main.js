@@ -49,6 +49,9 @@ ipcMain.on('montarHistorico', (event, caixa) => {
     let expressao = []
     expressao.push(caixa + ' = ' + resultado)
     historico.push(expressao)
-    event.reply('historico-pronto', historico)
+    console.log(historico)
+
+    event.reply('devolver-historico', historico)
 })
-ipcMain.on('janela-historico', () => janelaHistorico()) 
+
+ipcMain.on('janela-historico', janelaHistorico)

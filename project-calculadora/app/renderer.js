@@ -16,13 +16,14 @@ const captacao = () => {
             document.getElementById('caixa').value = document.getElementById('caixa').value.slice(0, -1)
         }
         else if(botao === 'H'){
-            criarHistorico() 
+            janelaHistorico()
+
         }
         else{document.getElementById('caixa').value += botao}
     })
 }
 window.addEventListener('load', captacao)
 
-const criarHistorico = () => {
+const janelaHistorico = () => {
     window.api.janelaHistorico()
 }
