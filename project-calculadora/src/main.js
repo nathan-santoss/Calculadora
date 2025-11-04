@@ -50,8 +50,7 @@ ipcMain.on('montarHistorico', (event, caixa) => {
     expressao.push(caixa + ' = ' + resultado)
     historico.push(expressao)
     console.log(historico)
-
-    event.reply('devolver-historico', historico)
 })
 
 ipcMain.on('janela-historico', janelaHistorico)
+ipcMain.on('solicitar-historico', (event, historico) => event.reply('devolver-historico', historico))

@@ -7,8 +7,7 @@ contextBridge.exposeInMainWorld('api',{
     resolucao: () => resultado.toFixed(2),
     montarHistorico: (caixa) => ipcRenderer.send('montarHistorico', caixa),
     janelaHistorico: () => ipcRenderer.send('janela-historico'),
-    receber: (historico) => {
-        ipcRenderer.on('devolver-historico', historico)
-        console.log(historico)
-    }
+    
+    solicitar: () => ipcRenderer.send('solicitar-historico'),
+    receber: (historico) => ipcRenderer.on('devolver-historico', historico)
 })

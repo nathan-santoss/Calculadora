@@ -11,7 +11,8 @@
     
     <script>
         window.addEventListener('load', () => {
-            window.api.receber((event, array) => document.getElementById('historico').innerHTML = array)
+            window.api.solicitar()
+            window.api.receber((event, array) => document.getElementById('Historico').innerHTML = array)
         })
     </script>
 </body>
